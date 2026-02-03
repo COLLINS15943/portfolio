@@ -1,0 +1,44 @@
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+
+.social-link:hover {
+  background-color: var(--bg-hover);
+  transform: translateY(-2px);
+  color: var(--text-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .social-links {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-link {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .social-link svg {
+    width: 16px;
+    height: 16px;
+  }
+}

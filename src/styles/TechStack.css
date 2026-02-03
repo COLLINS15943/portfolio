@@ -1,0 +1,101 @@
+/* Tech Stack */
+.tech-stack {
+  margin-top: 3rem;
+}
+
+.tech-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.tech-icons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tech-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-icon:hover {
+  transform: translateY(-2px);
+}
+
+/* Tech Icon Colors - Same in both modes for brand recognition */
+.tech-icon.html { 
+  background-color: #fff5f5; 
+  color: #e34c26; 
+}
+
+.tech-icon.css { 
+  background-color: #f0f9ff; 
+  color: #1572b6; 
+}
+
+.tech-icon.js { 
+  background-color: #f7df1e; 
+  color: #323330; 
+}
+
+.tech-icon.react { 
+  background-color: #f0f9ff; 
+  color: #61dafb; 
+}
+
+.tech-icon.figma { 
+  background-color: #fdf4ff; 
+  color: #f24e1e; 
+}
+
+/* Dark mode adjustments for tech icons */
+.dark-mode .tech-icon.html { 
+  background-color: rgba(255, 245, 245, 0.2); 
+}
+
+.dark-mode .tech-icon.css { 
+  background-color: rgba(240, 249, 255, 0.2); 
+}
+
+.dark-mode .tech-icon.react { 
+  background-color: rgba(240, 249, 255, 0.2); 
+}
+
+.dark-mode .tech-icon.figma { 
+  background-color: rgba(253, 244, 255, 0.2); 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tech-stack {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .tech-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
+  .tech-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
