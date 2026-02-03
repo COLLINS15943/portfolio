@@ -14,7 +14,7 @@ const Hero = () => {
         {/* Mobile image - shows between title and subtitle */}
         <div className="hero-image mobile-image">
           <img 
-            src="/images/young and safe.jpeg" 
+            src="/images/profile.jpeg" 
             alt="Collins Agbo" 
             className="profile-image"
           />
@@ -39,7 +39,7 @@ const Hero = () => {
       {/* Desktop image - shows on the right side */}
       <div className="hero-image desktop-image">
         <img 
-          src="/images/young and safe.jpeg" 
+          src="/images/profile.jpeg" 
           alt="Collins Agbo" 
           className="profile-image"
         />
