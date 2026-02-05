@@ -41,6 +41,11 @@
   margin-bottom: 4rem;
 }
 
+/* Reverse layout for alternating projects */
+.project-card.reverse {
+  flex-direction: row-reverse;
+}
+
 .project-image {
   flex-shrink: 0;
   max-width: 500px;
@@ -152,7 +157,8 @@
     font-size: 2rem;
   }
   
-  .project-card {
+  .project-card,
+  .project-card.reverse {
     flex-direction: column;
     gap: 2rem;
   }
