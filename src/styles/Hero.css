@@ -42,6 +42,29 @@
   color: var(--accent-red);
 }
 
+/* Download CV Button */
+.download-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-color);
+  margin-top: 1.5rem;
+}
+
+.download-cv-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(20, 126, 251, 0.3);
+}
+
 /* Profile Image */
 .hero-image {
   flex-shrink: 0;
@@ -224,5 +247,10 @@
   
   .hero-image .floating-dot {
     display: none; /* Hide floating dots on small mobile for cleaner look */
+  }
+  
+  .download-cv-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 }
