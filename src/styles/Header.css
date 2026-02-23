@@ -102,8 +102,17 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 998;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.3s ease forwards;
   cursor: pointer;
+  backdrop-filter: blur(2px);
+  display: none;
+}
+
+/* Only show backdrop on mobile/tablet */
+@media (max-width: 768px) {
+  .menu-backdrop {
+    display: block;
+  }
 }
 
 @keyframes fadeIn {

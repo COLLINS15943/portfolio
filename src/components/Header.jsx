@@ -1,10 +1,39 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { HiMenu, HiX } from 'react-icons/hi'
 import ThemeToggle from './ThemeToggle'
 import '../styles/Header.css'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMenuOpen])
+
+  // Close menu when resizing to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768 && isMenuOpen) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [isMenuOpen])
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -23,6 +52,10 @@ const Header = () => {
     setIsMenuOpen(false)
   }
 
+  const toggleMenu = () => {
+    setIsMenuOpen(prev => !prev)
+  }
+
   return (
     <>
       <header className="header">
@@ -36,8 +69,9 @@ const Header = () => {
           
           <button 
             className="mobile-menu-toggle" 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMenu}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </button>
@@ -51,7 +85,7 @@ const Header = () => {
         </div>
       </header>
       
-      {/* Backdrop overlay */}
+      {/* Backdrop overlay - only renders when menu is open */}
       {isMenuOpen && (
         <div 
           className="menu-backdrop" 
