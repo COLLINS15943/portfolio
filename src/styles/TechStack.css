@@ -1,35 +1,38 @@
 /* Tech Stack */
 .tech-stack {
-  margin-top: 3rem;
+  margin-top: var(--spacing-xl);
 }
 
 .tech-label {
   color: var(--text-secondary);
-  font-weight: 500;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
   display: block;
+  font-size: 1rem;
 }
 
 .tech-icons {
   display: flex;
-  gap: 1rem;
+  gap: var(--spacing-md);
   flex-wrap: wrap;
 }
 
 .tech-icon {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
 .tech-icon:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px var(--shadow-hover);
 }
 
 /* Tech Icon Colors - Same in both modes for brand recognition */
@@ -79,23 +82,38 @@
 @media (max-width: 768px) {
   .tech-stack {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: var(--spacing-lg);
   }
   
   .tech-icons {
     justify-content: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .tech-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
   }
 }
 
 @media (max-width: 480px) {
+  .tech-stack {
+    margin-top: var(--spacing-md);
+  }
+  
+  .tech-label {
+    font-size: 0.95rem;
+  }
+  
   .tech-icon {
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
     font-size: 1.3rem;
   }
   
   .tech-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
   }
 }

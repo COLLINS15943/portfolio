@@ -3,11 +3,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
-  max-width: 1200px;
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  max-width: 1400px;
   margin: 0 auto;
-  gap: 4rem;
-  min-height: 80vh;
+  gap: var(--spacing-3xl);
+  min-height: 85vh;
 }
 
 .hero-content {
@@ -19,50 +19,57 @@
   font-size: 3.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
   line-height: 1.1;
 }
 
 .hero-subtitle {
   font-size: 1.2rem;
   color: var(--text-secondary);
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.7;
+}
+
+.desktop-br {
+  display: inline;
 }
 
 .hero-location {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-xs);
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.05rem;
 }
 
 .location-pin {
   color: var(--accent-red);
+  font-size: 1.2rem;
 }
 
 /* Download CV Button */
 .download-cv-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-xs);
   background: var(--primary-color);
   color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
   border: 2px solid var(--primary-color);
-  margin-top: 1.5rem;
+  margin-top: var(--spacing-md);
+  box-shadow: 0 4px 15px rgba(20, 126, 251, 0.2);
 }
 
 .download-cv-btn:hover {
   background: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(20, 126, 251, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(20, 126, 251, 0.4);
 }
 
 /* Profile Image */
@@ -169,10 +176,21 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .hero {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    gap: var(--spacing-2xl);
+  }
+  
+  .hero-title {
+    font-size: 3.2rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero {
-    padding: 3rem 1.5rem;
-    gap: 3rem;
+    padding: var(--spacing-2xl) var(--spacing-md);
+    gap: var(--spacing-xl);
   }
   
   .hero-title {
@@ -189,18 +207,22 @@
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 2rem 1rem;
-    gap: 2rem;
+    padding: var(--spacing-xl) var(--spacing-md);
+    gap: var(--spacing-lg);
     min-height: 70vh;
   }
   
   .hero-title {
     font-size: 2.5rem;
-    margin-bottom: 0; /* Remove margin since image comes next */
+    margin-bottom: var(--spacing-sm);
   }
   
   .hero-subtitle {
     font-size: 1.1rem;
+  }
+  
+  .desktop-br {
+    display: none;
   }
   
   /* Hide desktop image, show mobile image */
@@ -210,6 +232,7 @@
   
   .mobile-image {
     display: block;
+    margin: var(--spacing-md) 0;
   }
   
   .profile-image {
@@ -218,14 +241,14 @@
   }
   
   .hero-image .floating-dot {
-    display: none; /* Hide floating dots on mobile for cleaner look */
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 1.5rem 1rem;
-    gap: 1.5rem;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    gap: var(--spacing-md);
   }
   
   .hero-title {
@@ -234,23 +257,26 @@
   
   .hero-subtitle {
     font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .hero-location {
+    font-size: 0.95rem;
   }
   
   .profile-image {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
   }
   
   .mobile-image {
-    margin: 1.5rem 0;
-  }
-  
-  .hero-image .floating-dot {
-    display: none; /* Hide floating dots on small mobile for cleaner look */
+    margin: var(--spacing-sm) 0;
   }
   
   .download-cv-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
   }
 }
