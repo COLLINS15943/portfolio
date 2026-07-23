@@ -1,9 +1,25 @@
 import { HiDownload, HiLocationMarker } from 'react-icons/hi'
+import { useState, useEffect } from 'react'
 import TechStack from './TechStack'
 import SocialLinks from './SocialLinks'
 import '../styles/Hero.css'
 
+const TYPEWRITER_TEXT = "Hi, I'm Collins Agbo. A passionate Front-end React Developer based in Accra, Ghana."
+
 const Hero = () => {
+  const [displayed, setDisplayed] = useState('')
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    if (index < TYPEWRITER_TEXT.length) {
+      const timeout = setTimeout(() => {
+        setDisplayed(prev => prev + TYPEWRITER_TEXT[index])
+        setIndex(prev => prev + 1)
+      }, 40)
+      return () => clearTimeout(timeout)
+    }
+  }, [index])
+
   return (
     <main className="hero">
       <div className="hero-content">
@@ -25,8 +41,7 @@ const Hero = () => {
         </div>
         
         <p className="hero-subtitle">
-          Hi, I'm Collins Agbo. A passionate Front-end React<br className="desktop-br" />
-          Developer based in Accra, Ghana.
+          {displayed}<span className="typewriter-cursor">|</span>
         </p>
         <div className="hero-location">
           <HiLocationMarker className="location-pin" />

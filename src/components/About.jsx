@@ -1,10 +1,14 @@
+import useScrollReveal from '../hooks/useScrollReveal'
 import '../styles/About.css'
 
 const About = () => {
+  const imageRef = useScrollReveal()
+  const contentRef = useScrollReveal()
+
   return (
     <section id="about" className="about">
       <div className="about-container">
-        <div className="about-image">
+        <div ref={imageRef} className="about-image reveal-left">
           <img 
             src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop" 
             alt="Workspace setup" 
@@ -12,7 +16,7 @@ const About = () => {
           />
         </div>
       
-        <div className="about-content">
+        <div ref={contentRef} className="about-content reveal-right">
           <h2 className="about-title">
             <span className="about-label">ABOUT ME</span>
             A dedicated Front-end Developer<br />

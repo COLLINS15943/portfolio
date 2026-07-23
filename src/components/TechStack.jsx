@@ -1,4 +1,4 @@
-import { SiNextdotjs, SiTailwindcss } from 'react-icons/si'
+import { SiNextdotjs, SiTailwindcss, SiNodedotjs, SiSupabase } from 'react-icons/si'
 import '../styles/TechStack.css'
 
 const TechStack = () => {
@@ -29,6 +29,12 @@ const TechStack = () => {
         </div>
         <div className="tech-icon tailwind" title="Tailwind CSS">
           <SiTailwindcss size={24} />
+        </div>
+        <div className="tech-icon nodejs" title="Node.js">
+          <SiNodedotjs size={24} />
+        </div>
+        <div className="tech-icon supabase" title="Supabase">
+          <SiSupabase size={24} />
         </div>
         <div className="tech-icon figma" title="Figma">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">

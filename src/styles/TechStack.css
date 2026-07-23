@@ -71,6 +71,16 @@
   color: #06b6d4;
 }
 
+.tech-icon.nodejs {
+  background-color: #f0fff4;
+  color: #339933;
+}
+
+.tech-icon.supabase {
+  background-color: #f0fdf9;
+  color: #3ecf8e;
+}
+
 /* Dark mode adjustments for tech icons */
 .dark-mode .tech-icon.html { 
   background-color: rgba(255, 245, 245, 0.2); 
@@ -95,6 +105,14 @@
 
 .dark-mode .tech-icon.tailwind {
   background-color: rgba(240, 253, 255, 0.15);
+}
+
+.dark-mode .tech-icon.nodejs {
+  background-color: rgba(240, 255, 244, 0.15);
+}
+
+.dark-mode .tech-icon.supabase {
+  background-color: rgba(240, 253, 249, 0.15);
 }
 
 /* Responsive Design */

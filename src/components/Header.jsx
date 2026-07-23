@@ -62,7 +62,7 @@ const Header = () => {
         <div className="header-content">
           <div className="logo-section">
             <button className="logo" onClick={scrollToTop} aria-label="Go to home">
-              Collins.dev
+              cadsix
             </button>
             <ThemeToggle />
           </div>

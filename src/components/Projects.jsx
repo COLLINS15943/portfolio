@@ -1,18 +1,24 @@
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import useScrollReveal from '../hooks/useScrollReveal'
 import '../styles/Projects.css'
 
 const Projects = () => {
+  const headerRef = useScrollReveal()
+  const card1Ref = useScrollReveal()
+  const card2Ref = useScrollReveal()
+  const card3Ref = useScrollReveal()
+
   return (
     <section id="projects" className="projects">
       <div className="projects-container">
-        <div className="projects-header">
+        <div ref={headerRef} className="projects-header reveal">
           <span className="projects-label">PORTFOLIO</span>
           <h2 className="projects-title">
             Each project is a unique piece of development 🧩
           </h2>
         </div>
 
-        <div className="project-card">
+        <div ref={card1Ref} className="project-card reveal">
           <div className="project-image">
             <a href="https://collins-car-rentals.netlify.app/" target="_blank" rel="noopener noreferrer">
               <img 
@@ -37,7 +43,7 @@ const Projects = () => {
             </div>
             
             <div className="project-links">
-              <a href="https://github.com/COLLINS15943/car-rental-website" className="project-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/cadsix/car-rental-website" className="project-link" target="_blank" rel="noopener noreferrer">
                 <FaGithub size={18} />
                 Code
               </a>
@@ -49,7 +55,7 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="project-card reverse">
+        <div ref={card2Ref} className="project-card reverse reveal">
           <div className="project-image">
             <a href="https://collinsecommerce.netlify.app/" target="_blank" rel="noopener noreferrer">
               <img 
@@ -75,7 +81,7 @@ const Projects = () => {
             </div>
             
             <div className="project-links">
-              <a href="https://github.com/COLLINS15943/basic-eCommerce/" className="project-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/cadsix/basic-eCommerce/" className="project-link" target="_blank" rel="noopener noreferrer">
                 <FaGithub size={18} />
                 Code
               </a>
@@ -86,6 +92,45 @@ const Projects = () => {
             </div>
           </div>
         </div>
+
+        <div ref={card3Ref} className="project-card reveal">
+          <div className="project-image">
+            <a href="https://food-ecommerce-ia3d.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <img 
+                src="/images/PORT3.png" 
+                alt="Food E-Commerce Project" 
+                className="project-screenshot"
+              />
+            </a>
+          </div>
+          
+          <div className="project-info">
+            <h3 className="project-name">FOOD E-COMMERCE 🍔</h3>
+            <p className="project-description">
+              A food e-commerce platform where users can browse menus, add items 
+              to their cart, and place orders online. Designed with a clean UI 
+              and smooth user experience across all devices.
+            </p>
+            
+            <div className="project-tech">
+              <span className="tech-tag">React</span>
+              <span className="tech-tag">CSS</span>
+              <span className="tech-tag">JavaScript</span>
+            </div>
+            
+            <div className="project-links">
+              <a href="https://github.com/cadsix/food-ecommerce" className="project-link" target="_blank" rel="noopener noreferrer">
+                <FaGithub size={18} />
+                Code
+              </a>
+              <a href="https://food-ecommerce-ia3d.vercel.app/" className="project-link live-demo" target="_blank" rel="noopener noreferrer">
+                <FaExternalLinkAlt size={16} />
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   )

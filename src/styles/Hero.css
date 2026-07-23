@@ -157,6 +157,19 @@
   background: #f24e1e;
 }
 
+/* Typewriter cursor */
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--primary-color);
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 /* Animations */
 @keyframes rotate {
   0% {

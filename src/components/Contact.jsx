@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import { HiLocationMarker, HiMail, HiPhone, HiPaperAirplane } from 'react-icons/hi'
+import useScrollReveal from '../hooks/useScrollReveal'
 import '../styles/Contact.css'
 
 const Contact = () => {
+  const headerRef = useScrollReveal()
+  const infoRef = useScrollReveal()
+  const formRef = useScrollReveal()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -34,7 +38,7 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="contact-container">
-        <div className="contact-header">
+        <div ref={headerRef} className="contact-header reveal">
           <span className="contact-label">CONTACT</span>
           <h2 className="contact-title">
             Don't be shy! Hit me up! 👋
@@ -42,7 +46,7 @@ const Contact = () => {
         </div>
 
         <div className="contact-content">
-          <div className="contact-info">
+          <div ref={infoRef} className="contact-info reveal-left">
             <div className="contact-item">
               <div className="contact-icon">
                 <HiLocationMarker size={24} />
@@ -69,12 +73,12 @@ const Contact = () => {
               </div>
               <div className="contact-details">
                 <h3>Phone</h3>
-                <a href="tel:+23352914296">+233 52 914 296</a>
+                <a href="tel:+233559438418">0559438418 / 0552914296</a>
               </div>
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form ref={formRef} className="contact-form reveal-right" onSubmit={handleSubmit}>
             <div className="form-group">
               <input
                 type="text"
