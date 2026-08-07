@@ -211,7 +211,8 @@
 
   .mobile-image {
     display: block;
-    margin: var(--spacing-md) 0;
+    margin: var(--spacing-md) auto;
+    width: fit-content;
   }
 
   .profile-image {
