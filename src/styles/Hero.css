@@ -3,12 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-3xl) var(--spacing-xl);
+  padding: calc(var(--spacing-3xl) + 80px) var(--spacing-xl) var(--spacing-3xl);
   max-width: 1400px;
   margin: 0 auto;
   gap: var(--spacing-3xl);
-  min-height: 85vh;
-  padding-top: calc(var(--spacing-3xl) + 80px); /* Account for fixed header */
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .hero-content {
@@ -17,22 +17,18 @@
 }
 
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--spacing-md);
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   color: var(--text-secondary);
   margin-bottom: var(--spacing-lg);
-  line-height: 1.7;
-}
-
-.desktop-br {
-  display: inline;
+  line-height: 1.75;
 }
 
 .hero-location {
@@ -41,12 +37,13 @@
   gap: var(--spacing-xs);
   color: var(--text-secondary);
   margin-bottom: var(--spacing-lg);
-  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-size: 1rem;
 }
 
 .location-pin {
   color: var(--accent-red);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 /* Download CV Button */
@@ -56,21 +53,21 @@
   gap: var(--spacing-xs);
   background: var(--primary-color);
   color: white;
-  padding: 14px 28px;
-  border-radius: 10px;
+  padding: 13px 28px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   border: 2px solid var(--primary-color);
   margin-top: var(--spacing-md);
-  box-shadow: 0 4px 15px rgba(20, 126, 251, 0.2);
+  box-shadow: 0 4px 14px rgba(20, 126, 251, 0.2);
 }
 
 .download-cv-btn:hover {
   background: var(--primary-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(20, 126, 251, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(20, 126, 251, 0.35);
 }
 
 /* Profile Image */
@@ -79,15 +76,13 @@
   position: relative;
 }
 
-/* Desktop image - hidden on mobile */
 .desktop-image {
   display: block;
 }
 
-/* Mobile image - hidden on desktop */
 .mobile-image {
   display: none;
-  margin: 2rem 0;
+  margin: var(--spacing-lg) 0;
   align-self: center;
 }
 
@@ -99,10 +94,10 @@
   right: -10px;
   bottom: -10px;
   background: linear-gradient(45deg, #0066cc, #61dafb, #f24e1e, #0066cc);
+  background-size: 400% 400%;
   border-radius: 60px;
   z-index: -1;
-  animation: rotate 1s linear infinite;
-  background-size: 400% 400%;
+  animation: rotate 6s linear infinite;
 }
 
 .hero-image::after {
@@ -125,71 +120,50 @@
   border: 4px solid var(--border-color);
   position: relative;
   z-index: 1;
+  display: block;
 }
 
-/* Floating dots animation */
+/* Floating dots */
 .hero-image .floating-dot {
   position: absolute;
   width: 8px;
   height: 8px;
   background: #0066cc;
   border-radius: 50%;
-  animation: float 2s ease-in-out infinite;
+  animation: float 2.5s ease-in-out infinite;
 }
 
-.hero-image .dot-1 {
-  top: 20%;
-  right: -20px;
-  animation-delay: 0s;
-}
-
-.hero-image .dot-2 {
-  bottom: 30%;
-  left: -15px;
-  animation-delay: 0.5s;
-  background: #61dafb;
-}
-
-.hero-image .dot-3 {
-  top: 60%;
-  right: -25px;
-  animation-delay: 1s;
-  background: #f24e1e;
-}
+.hero-image .dot-1 { top: 20%; right: -20px; animation-delay: 0s; }
+.hero-image .dot-2 { bottom: 30%; left: -15px; animation-delay: 0.6s; background: #61dafb; }
+.hero-image .dot-3 { top: 60%; right: -25px; animation-delay: 1.2s; background: #f24e1e; }
 
 /* Typewriter cursor */
 .typewriter-cursor {
   display: inline-block;
-  margin-left: 2px;
+  margin-left: 1px;
   color: var(--primary-color);
-  animation: blink 0.7s step-end infinite;
+  font-weight: 300;
+  animation: blink 0.75s step-end infinite;
 }
 
+/* Keyframes */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
-/* Animations */
 @keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-/* Responsive Design */
+/* ── Responsive ────────────────────────────────────── */
+
 @media (max-width: 1200px) {
   .hero {
     padding: calc(var(--spacing-2xl) + 80px) var(--spacing-lg) var(--spacing-2xl);
@@ -201,11 +175,12 @@
   .hero {
     padding: calc(var(--spacing-2xl) + 70px) var(--spacing-md) var(--spacing-2xl);
     gap: var(--spacing-xl);
+    min-height: auto;
   }
-  
+
   .profile-image {
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    height: 260px;
   }
 }
 
@@ -214,59 +189,63 @@
     flex-direction: column;
     text-align: center;
     padding: calc(var(--spacing-xl) + 70px) var(--spacing-md) var(--spacing-xl);
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
     min-height: auto;
   }
-  
+
   .hero-content {
     max-width: 100%;
   }
-  
-  .desktop-br {
-    display: none;
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
   }
-  
-  /* Hide desktop image, show mobile image */
+
+  .hero-location {
+    justify-content: center;
+  }
+
   .desktop-image {
     display: none;
   }
-  
+
   .mobile-image {
     display: block;
     margin: var(--spacing-md) 0;
-    order: -1; /* Show image first on mobile */
   }
-  
+
   .profile-image {
-    width: min(250px, 70vw);
-    height: min(250px, 70vw);
+    width: min(220px, 60vw);
+    height: min(220px, 60vw);
   }
-  
+
   .hero-image .floating-dot {
     display: none;
+  }
+
+  .download-cv-btn {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
     padding: calc(var(--spacing-lg) + 60px) var(--spacing-sm) var(--spacing-lg);
-    gap: var(--spacing-md);
   }
-  
+
+  .hero-title {
+    font-size: clamp(1.8rem, 9vw, 2.4rem);
+  }
+
   .profile-image {
-    width: min(200px, 60vw);
-    height: min(200px, 60vw);
+    width: min(180px, 55vw);
+    height: min(180px, 55vw);
   }
-  
-  .mobile-image {
-    margin: var(--spacing-sm) 0;
-  }
-  
+
   .download-cv-btn {
-    padding: 12px 24px;
     font-size: 0.95rem;
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
+    padding: 12px 20px;
   }
 }

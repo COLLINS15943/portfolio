@@ -4,7 +4,7 @@ import TechStack from './TechStack'
 import SocialLinks from './SocialLinks'
 import '../styles/Hero.css'
 
-const TYPEWRITER_TEXT = "Hi, I'm Collins Agbo. A passionate Front-end React Developer based in Accra, Ghana."
+const TYPEWRITER_TEXT = "Hi, I'm Collins Agbo — a Software Engineer based in Accra, Ghana, focused on building clean, responsive web applications."
 
 const Hero = () => {
   const [displayed, setDisplayed] = useState('')
@@ -15,7 +15,7 @@ const Hero = () => {
       const timeout = setTimeout(() => {
         setDisplayed(prev => prev + TYPEWRITER_TEXT[index])
         setIndex(prev => prev + 1)
-      }, 40)
+      }, 38)
       return () => clearTimeout(timeout)
     }
   }, [index])
@@ -24,33 +24,33 @@ const Hero = () => {
     <main className="hero">
       <div className="hero-content">
         <h1 className="hero-title">
-          Front-End React<br />
-          Developer 👋
+          Software Engineer
         </h1>
-        
+
         {/* Mobile image - shows between title and subtitle */}
         <div className="hero-image mobile-image">
-          <img 
-            src="/images/profile.jpeg?v=2" 
-            alt="Collins Agbo" 
+          <img
+            src="/images/profile.jpeg?v=2"
+            alt="Collins Agbo"
             className="profile-image"
           />
           <div className="floating-dot dot-1"></div>
           <div className="floating-dot dot-2"></div>
           <div className="floating-dot dot-3"></div>
         </div>
-        
+
         <p className="hero-subtitle">
           {displayed}<span className="typewriter-cursor">|</span>
         </p>
+
         <div className="hero-location">
           <HiLocationMarker className="location-pin" />
           Accra, Ghana
         </div>
-        
+
         <SocialLinks />
         <TechStack />
-        
+
         <a href="/cv/updatedcv.pdf" download="Collins_Agbo_CV.pdf" className="download-cv-btn">
           <HiDownload size={18} />
           Download CV
@@ -59,9 +59,9 @@ const Hero = () => {
 
       {/* Desktop image - shows on the right side */}
       <div className="hero-image desktop-image">
-        <img 
-          src="/images/profile.jpeg?v=2" 
-          alt="Collins Agbo" 
+        <img
+          src="/images/profile.jpeg?v=2"
+          alt="Collins Agbo"
           className="profile-image"
         />
         <div className="floating-dot dot-1"></div>

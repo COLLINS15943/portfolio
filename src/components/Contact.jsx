@@ -41,7 +41,7 @@ const Contact = () => {
         <div ref={headerRef} className="contact-header reveal">
           <span className="contact-label">CONTACT</span>
           <h2 className="contact-title">
-            Don't be shy! Hit me up! 👋
+            Let's work together.
           </h2>
         </div>
 
