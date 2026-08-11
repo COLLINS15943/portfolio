@@ -51,7 +51,19 @@ const Hero = () => {
         <SocialLinks />
         <TechStack />
 
-        <a href="/cv/updatedcv.pdf" download="Collins_Agbo_CV.pdf" className="download-cv-btn">
+        <a
+          href="/cv/updatedcv.pdf"
+          download="Collins_Agbo_CV.pdf"
+          className="download-cv-btn"
+          onClick={() => {
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'cv_download', {
+                event_category: 'engagement',
+                event_label: 'CV Download'
+              })
+            }
+          }}
+        >
           <HiDownload size={18} />
           Download CV
         </a>
