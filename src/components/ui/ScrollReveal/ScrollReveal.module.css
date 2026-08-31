@@ -1,0 +1,17 @@
+/* ScrollReveal.module.css
+ *
+ * Only sets the initial hidden state per direction.
+ * The `.revealed` class is added by useScrollReveal (IntersectionObserver)
+ * and the revealed styles are defined as global CSS in index.css so the
+ * plain class name `.revealed` always matches regardless of CSS module scoping.
+ */
+
+.base {
+  transition:
+    opacity  var(--transition-reveal),
+    transform var(--transition-reveal);
+}
+
+.revealUp    { opacity: 0; transform: translateY(40px); }
+.revealLeft  { opacity: 0; transform: translateX(-50px); }
+.revealRight { opacity: 0; transform: translateX(50px); }

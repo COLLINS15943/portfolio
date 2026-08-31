@@ -1,0 +1,68 @@
+/* =============================================================================
+   variables.css — Design token definitions (light mode defaults)
+   Dark mode overrides live in themes/dark.css.
+   ============================================================================= */
+
+:root {
+  /* ── Brand ──────────────────────────────────────────────────────────────── */
+  --color-primary:        #147efb;
+  --color-primary-hover:  #0f6fdb;
+  --color-primary-glow:   rgba(20, 126, 251, 0.25);
+  --color-accent-cyan:    #38bdf8;
+  --color-accent-red:     #f43f5e;
+  --color-accent-purple:  #8b5cf6;
+
+  /* ── Surfaces ───────────────────────────────────────────────────────────── */
+  --color-bg-primary:      #f8faff;
+  --color-bg-secondary:    #eef2fa;
+  --color-bg-card:         rgba(255, 255, 255, 0.70);
+  --color-bg-card-hover:   rgba(255, 255, 255, 0.90);
+  --color-bg-glass:        rgba(255, 255, 255, 0.45);
+  --color-bg-glass-strong: rgba(255, 255, 255, 0.80);
+
+  /* ── Text ───────────────────────────────────────────────────────────────── */
+  --color-text-primary:   #0d1117;
+  --color-text-secondary: #4a5568;
+  --color-text-muted:     #8896aa;
+
+  /* ── Borders ────────────────────────────────────────────────────────────── */
+  --color-border:        rgba(0, 0, 0, 0.08);
+  --color-border-strong: rgba(0, 0, 0, 0.14);
+
+  /* ── Shadows ────────────────────────────────────────────────────────────── */
+  --shadow-sm:   0 1px  4px  rgba(0, 0, 0, 0.06);
+  --shadow-md:   0 4px  16px rgba(0, 0, 0, 0.08);
+  --shadow-lg:   0 8px  32px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0    24px rgba(20, 126, 251, 0.20);
+
+  /* ── Spacing scale (4px base) ───────────────────────────────────────────── */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.50rem;   /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1.00rem;   /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.50rem;   /* 24px */
+  --space-8:  2.00rem;   /* 32px */
+  --space-10: 2.50rem;   /* 40px */
+  --space-12: 3.00rem;   /* 48px */
+  --space-16: 4.00rem;   /* 64px */
+  --space-20: 5.00rem;   /* 80px */
+  --space-24: 6.00rem;   /* 96px */
+
+  /* ── Border radii ───────────────────────────────────────────────────────── */
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   32px;
+  --radius-full: 9999px;
+
+  /* ── Transitions ────────────────────────────────────────────────────────── */
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.25s ease;
+  --transition-slow:   0.45s ease;
+  --transition-reveal: 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ── Layout ─────────────────────────────────────────────────────────────── */
+  --max-width:     1280px;
+  --header-height: 72px;
+}

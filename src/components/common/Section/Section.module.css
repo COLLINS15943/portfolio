@@ -1,0 +1,16 @@
+/* Section.module.css */
+
+.section {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--space-24);
+}
+
+.alternate {
+  background: var(--color-bg-secondary);
+  transition: background var(--transition-slow);
+}
+
+@media (max-width: 768px) {
+  .section { padding-block: var(--space-16); }
+}

@@ -1,0 +1,23 @@
+/* Typewriter.module.css */
+
+.cursor {
+  display: inline-block;
+  margin-left: 1px;
+  color: var(--color-primary);
+  font-weight: 300;
+  animation: blink 0.75s step-end infinite;
+}
+
+/* Stop blinking once typing completes — fade it out instead */
+.cursorDone {
+  animation: fadeOut 1s 1s ease forwards;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}

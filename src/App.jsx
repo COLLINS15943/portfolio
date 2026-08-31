@@ -1,20 +1,29 @@
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
-import './styles/App.css'
+/**
+ * App.jsx — Root application component
+ *
+ * Wraps the entire app in <ThemeProvider> so every component can access
+ * theme state via useThemeContext() without prop drilling.
+ *
+ * Layout (Header + Footer) is applied by the Layout component.
+ * Page sections are composed here in document order.
+ */
 
-function App() {
-  return (
-    <div className="app">
-      <Header />
+import { ThemeProvider }  from './contexts/ThemeContext'
+import Layout             from './components/layout/Layout'
+import Hero               from './components/sections/Hero'
+import About              from './components/sections/About'
+import Projects           from './components/sections/Projects'
+import Contact            from './components/sections/Contact'
+
+const App = () => (
+  <ThemeProvider>
+    <Layout>
       <Hero />
       <About />
       <Projects />
       <Contact />
-    </div>
-  )
-}
+    </Layout>
+  </ThemeProvider>
+)
 
 export default App

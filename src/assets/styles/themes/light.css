@@ -1,0 +1,31 @@
+/* =============================================================================
+   light.css — Light theme token overrides
+   These are the default values; they match :root in variables.css.
+   Kept here explicitly so the theme system is self-documenting.
+   ============================================================================= */
+
+:root,
+.light-mode {
+  --color-bg-primary:      #f8faff;
+  --color-bg-secondary:    #eef2fa;
+  --color-bg-card:         rgba(255, 255, 255, 0.70);
+  --color-bg-card-hover:   rgba(255, 255, 255, 0.90);
+  --color-bg-glass:        rgba(255, 255, 255, 0.45);
+  --color-bg-glass-strong: rgba(255, 255, 255, 0.80);
+
+  --color-text-primary:   #0d1117;
+  --color-text-secondary: #4a5568;
+  --color-text-muted:     #8896aa;
+
+  --color-border:        rgba(0, 0, 0, 0.08);
+  --color-border-strong: rgba(0, 0, 0, 0.14);
+
+  --shadow-sm:   0 1px  4px  rgba(0, 0, 0, 0.06);
+  --shadow-md:   0 4px  16px rgba(0, 0, 0, 0.08);
+  --shadow-lg:   0 8px  32px rgba(0, 0, 0, 0.12);
+  --shadow-glow: 0 0    24px rgba(20, 126, 251, 0.20);
+
+  --color-primary:       #147efb;
+  --color-primary-hover: #0f6fdb;
+  --color-primary-glow:  rgba(20, 126, 251, 0.25);
+}
