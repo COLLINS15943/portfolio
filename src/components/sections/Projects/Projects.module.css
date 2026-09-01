@@ -1,6 +1,5 @@
 /* Projects.module.css */
 
-/* ── Section header ── */
 .header {
   text-align: center;
   margin-bottom: var(--space-16);
@@ -8,11 +7,11 @@
 
 .title {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-/* ── Filter bar ── */
+/* ── Filter bar — neutral, only active tag gets the accent ── */
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +22,7 @@
 
 .filterBtn {
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 500;
   font-family: inherit;
   color: var(--color-text-secondary);
   background: var(--color-bg-card);
@@ -31,35 +30,32 @@
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-full);
   cursor: pointer;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition:
     color var(--transition-base),
     background var(--transition-base),
-    border-color var(--transition-base),
-    transform var(--transition-base);
+    border-color var(--transition-base);
 }
 
 .filterBtn:hover {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
 }
 
+/* Active — the one place accent colour is used in filters */
 .filterActive {
   color: #fff !important;
   background: var(--color-primary) !important;
   border-color: var(--color-primary) !important;
 }
 
-/* ── Cards list (stacked, full-width) ── */
+/* ── Cards list ── */
 .list {
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
 }
 
-/* ── Individual card — alternating two-column layout ── */
+/* ── Alternating two-column card ── */
 .card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -67,21 +63,14 @@
   gap: var(--space-12);
 }
 
-/* Flip image to the right using order — no direction tricks that cause overflow */
-.cardReverse .imageCol {
-  order: 2;
-}
+.cardReverse .imageCol { order: 2; }
+.cardReverse .infoCol  { order: 1; }
 
-.cardReverse .infoCol {
-  order: 1;
-}
-
-/* ── Image column ── */
+/* ── Image ── */
 .imageCol {
   overflow: hidden;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  /* Fixed height so image never stretches the row */
   height: 280px;
 }
 
@@ -94,9 +83,7 @@
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.imageCol:hover .screenshot {
-  transform: scale(1.04);
-}
+.imageCol:hover .screenshot { transform: scale(1.03); }
 
 /* ── Info column ── */
 .infoCol {
@@ -107,7 +94,7 @@
 
 .name {
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text-primary);
@@ -119,7 +106,7 @@
   line-height: 1.75;
 }
 
-/* ── Tech tags ── */
+/* ── Tags — neutral, no blue background ── */
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -128,15 +115,15 @@
 
 .tag {
   font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  background: var(--color-primary-glow);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
   padding: 3px 10px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(20, 126, 251, 0.2);
+  border: 1px solid var(--color-border-strong);
 }
 
-/* ── Links row ── */
+/* ── Links — neutral ghost style ── */
 .links {
   display: flex;
   gap: var(--space-3);
@@ -155,18 +142,17 @@
   border-radius: var(--radius-md);
   transition:
     color var(--transition-base),
-    border-color var(--transition-base),
     background var(--transition-base),
     transform var(--transition-base);
 }
 
 .link:hover {
   color: var(--color-text-primary);
-  border-color: var(--color-primary);
-  background: var(--color-primary-glow);
+  background: var(--color-bg-secondary);
   transform: translateY(-2px);
 }
 
+/* Live Demo — the only blue button here */
 .linkPrimary {
   background: var(--color-primary);
   color: #fff !important;
@@ -177,9 +163,9 @@
   background: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
   color: #fff !important;
+  transform: translateY(-2px);
 }
 
-/* ── Empty state ── */
 .empty {
   text-align: center;
   color: var(--color-text-muted);
@@ -193,17 +179,15 @@
     gap: var(--space-8);
   }
 
-  /* Reset order so image always comes first on mobile */
   .cardReverse .imageCol,
-  .cardReverse .infoCol {
-    order: unset;
-  }
+  .cardReverse .infoCol { order: unset; }
 
-  .imageCol {
-    height: 220px;
-  }
+  .imageCol { height: 220px; }
 }
 
 @media (max-width: 480px) {
+  .list { gap: var(--space-12); }
+  .imageCol { height: 190px; }
   .links { flex-wrap: wrap; }
+  .link, .linkPrimary { flex: 1; justify-content: center; }
 }

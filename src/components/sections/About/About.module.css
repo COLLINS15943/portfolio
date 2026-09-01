@@ -49,3 +49,13 @@
     gap: var(--space-10);
   }
 }
+
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(1.6rem, 8vw, 2rem);
+  }
+
+  .description {
+    font-size: 0.98rem;
+  }
+}

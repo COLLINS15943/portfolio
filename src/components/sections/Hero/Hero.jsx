@@ -37,11 +37,11 @@ const Hero = () => (
         {/* Mobile image — shown between title and subtitle on small screens */}
         <div className={`${styles.imageWrapper} ${styles.mobileImage}`}>
           <img
-            src="/images/profile.jpeg"
+            src="/images/me.png"
             alt="Collins Agbo"
             className={styles.profileImage}
-            width={220}
-            height={220}
+            width={200}
+            height={200}
           />
         </div>
 

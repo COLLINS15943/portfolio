@@ -1,33 +1,32 @@
 /* =============================================================================
-   dark.css — Dark theme token overrides
-   Applied by adding the `.dark-mode` class to <html>.
+   dark.css — Dark theme
+   60%: deep charcoal backgrounds
+   30%: dark card surfaces, muted text
+   10%: same blue accent, slightly lighter for contrast on dark
    ============================================================================= */
 
 .dark-mode {
-  --color-bg-primary:      #0b0f1a;
-  --color-bg-secondary:    #111827;
-  --color-bg-card:         rgba(17, 24, 39, 0.70);
-  --color-bg-card-hover:   rgba(17, 24, 39, 0.90);
-  --color-bg-glass:        rgba(15, 20, 35, 0.55);
-  --color-bg-glass-strong: rgba(15, 20, 35, 0.88);
+  --color-bg-primary:      #141414;
+  --color-bg-secondary:    #1c1c1c;
+  --color-bg-card:         rgba(28, 28, 28, 0.80);
+  --color-bg-card-hover:   rgba(36, 36, 36, 0.95);
+  --color-bg-glass:        rgba(20, 20, 20, 0.60);
+  --color-bg-glass-strong: rgba(20, 20, 20, 0.92);
 
-  --color-text-primary:   #f0f6ff;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted:     #64748b;
+  --color-text-primary:   #f0f0f0;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted:     #606060;
 
   --color-border:        rgba(255, 255, 255, 0.07);
-  --color-border-strong: rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(255, 255, 255, 0.13);
 
-  --shadow-sm:   0 1px  4px  rgba(0, 0, 0, 0.25);
-  --shadow-md:   0 4px  16px rgba(0, 0, 0, 0.35);
-  --shadow-lg:   0 8px  32px rgba(0, 0, 0, 0.45);
-  --shadow-glow: 0 0    24px rgba(77, 166, 255, 0.25);
+  --shadow-sm:   0 1px  4px  rgba(0, 0, 0, 0.30);
+  --shadow-md:   0 4px  16px rgba(0, 0, 0, 0.40);
+  --shadow-lg:   0 8px  32px rgba(0, 0, 0, 0.50);
+  --shadow-glow: 0 4px  20px rgba(0, 0, 0, 0.30);
 
-  --color-primary:       #4da6ff;
-  --color-primary-hover: #73b8ff;
-  --color-primary-glow:  rgba(77, 166, 255, 0.30);
-
-  --color-accent-cyan:   #67e8f9;
-  --color-accent-red:    #fb7185;
-  --color-accent-purple: #a78bfa;
+  --color-primary:       #4a8ff7;
+  --color-primary-hover: #6aaafb;
+  --color-primary-glow:  rgba(74, 143, 247, 0.18);
+  --color-accent-red:    #e06060;
 }

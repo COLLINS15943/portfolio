@@ -14,3 +14,7 @@
 @media (max-width: 768px) {
   .section { padding-block: var(--space-16); }
 }
+
+@media (max-width: 480px) {
+  .section { padding-block: var(--space-12); }
+}

@@ -10,11 +10,11 @@ import styles from './Hero.module.css'
 const HeroAnimation = () => (
   <div className={`${styles.imageWrapper} desktop-image`}>
     <img
-      src="/images/profile.jpeg"
+      src="/images/me.png"
       alt="Collins Agbo"
       className={styles.profileImage}
-      width={300}
-      height={300}
+      width={420}
+      height={420}
     />
 
     {/* Floating accent orbs */}

@@ -1,6 +1,5 @@
 /* Header.module.css */
 
-/* ── Bar ── */
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -23,7 +22,6 @@
   border-bottom-color: var(--color-border-strong);
 }
 
-/* ── Inner layout ── */
 .inner {
   max-width: var(--max-width);
   height: 100%;
@@ -35,7 +33,7 @@
   gap: var(--space-6);
 }
 
-/* ── Logo ── */
+/* ── Logo — neutral, no blue on hover ── */
 .logo {
   font-size: 1.3rem;
   font-weight: 800;
@@ -46,11 +44,10 @@
   cursor: pointer;
   font-family: inherit;
   flex-shrink: 0;
-  transition: color var(--transition-base), transform var(--transition-base);
+  transition: opacity var(--transition-base);
 }
-.logo:hover { color: var(--color-primary); transform: scale(1.05); }
+.logo:hover { opacity: 0.7; }
 
-/* ── Desktop nav ── */
 .desktopControls {
   display: flex;
   align-items: center;
@@ -63,6 +60,7 @@
   gap: var(--space-1);
 }
 
+/* ── Nav links — neutral hover, no blue background ── */
 .nav a {
   color: var(--color-text-secondary);
   font-weight: 500;
@@ -70,16 +68,14 @@
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-full);
   border: 1px solid transparent;
-  transition: color var(--transition-base), background var(--transition-base), border-color var(--transition-base);
+  transition: color var(--transition-base), background var(--transition-base);
 }
 
 .nav a:hover {
   color: var(--color-text-primary);
-  background: rgba(20, 126, 251, 0.08);
-  border-color: var(--color-border-strong);
+  background: var(--color-bg-secondary);
 }
 
-/* ── Mobile controls ── */
 .mobileControls {
   display: none;
   align-items: center;
@@ -98,7 +94,6 @@
 }
 .hamburger:hover { background: var(--color-bg-secondary); }
 
-/* ── Mobile nav drawer ── */
 .mobileNav {
   position: fixed;
   top: var(--header-height);
@@ -131,15 +126,15 @@
   border-radius: var(--radius-md);
   transition: color var(--transition-base), background var(--transition-base);
 }
-.mobileNav a:hover { color: var(--color-text-primary); background: rgba(20,126,251,0.08); }
+.mobileNav a:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+}
 
-/* ── Backdrop ── */
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(0,0,0,0.35);
   z-index: 998;
   cursor: pointer;
   animation: fadeIn 0.2s ease forwards;
@@ -147,7 +142,6 @@
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* ── Responsive ── */
 @media (max-width: 768px) {
   .inner { padding-inline: var(--space-4); }
   .desktopControls { display: none; }

@@ -1,26 +1,34 @@
 /**
  * ContactForm.jsx
  *
- * Controlled form component. Uses the useForm hook for state management
- * and validation, and the api/contact module to send the message.
- * Every input has a visible <label> for full accessibility compliance.
+ * Sends messages via EmailJS. Shows a success or error message
+ * after submission so the user knows what happened.
  */
 
-import { HiPaperAirplane }     from 'react-icons/hi'
-import useForm                  from '../../../hooks/useForm'
-import { validateContactForm }  from '../../../utils/validators'
-import { sendContactEmail }     from '../../../api/contact'
-import styles                   from './Contact.module.css'
+import { useState }                from 'react'
+import { HiPaperAirplane }         from 'react-icons/hi'
+import useForm                     from '../../../hooks/useForm'
+import { validateContactForm }     from '../../../utils/validators'
+import { sendContactEmail }        from '../../../api/contact'
+import styles                      from './Contact.module.css'
 
 const INITIAL_VALUES = { name: '', email: '', message: '' }
 
 const ContactForm = () => {
+  const [status, setStatus] = useState(null) // 'success' | 'error' | null
+
   const { values, errors, isSubmitting, handleChange, handleSubmit, reset } =
     useForm(INITIAL_VALUES, validateContactForm)
 
   const onSubmit = handleSubmit(async (data) => {
-    await sendContactEmail(data)
-    reset()
+    try {
+      await sendContactEmail(data)
+      reset()
+      setStatus('success')
+    } catch (err) {
+      console.error('EmailJS error:', err)
+      setStatus('error')
+    }
   })
 
   return (
@@ -38,13 +46,8 @@ const ContactForm = () => {
           placeholder="Collins Agbo"
           className={errors.name ? styles.inputError : ''}
           required
-          aria-describedby={errors.name ? 'contact-name-error' : undefined}
         />
-        {errors.name && (
-          <span id="contact-name-error" className={styles.error} role="alert">
-            {errors.name}
-          </span>
-        )}
+        {errors.name && <span className={styles.error} role="alert">{errors.name}</span>}
       </div>
 
       {/* Email */}
@@ -59,13 +62,8 @@ const ContactForm = () => {
           placeholder="hello@example.com"
           className={errors.email ? styles.inputError : ''}
           required
-          aria-describedby={errors.email ? 'contact-email-error' : undefined}
         />
-        {errors.email && (
-          <span id="contact-email-error" className={styles.error} role="alert">
-            {errors.email}
-          </span>
-        )}
+        {errors.email && <span className={styles.error} role="alert">{errors.email}</span>}
       </div>
 
       {/* Message */}
@@ -80,16 +78,28 @@ const ContactForm = () => {
           rows={5}
           className={errors.message ? styles.inputError : ''}
           required
-          aria-describedby={errors.message ? 'contact-message-error' : undefined}
         />
-        {errors.message && (
-          <span id="contact-message-error" className={styles.error} role="alert">
-            {errors.message}
-          </span>
-        )}
+        {errors.message && <span className={styles.error} role="alert">{errors.message}</span>}
       </div>
 
-      <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+      {/* Success / error feedback */}
+      {status === 'success' && (
+        <p className={styles.successMsg}>
+          Message sent! I'll get back to you soon.
+        </p>
+      )}
+      {status === 'error' && (
+        <p className={styles.errorMsg}>
+          Something went wrong. Please try emailing me directly at agbocollins15@gmail.com
+        </p>
+      )}
+
+      <button
+        type="submit"
+        className={styles.submitBtn}
+        disabled={isSubmitting}
+        onClick={() => setStatus(null)}
+      >
         <HiPaperAirplane size={18} aria-hidden="true" />
         {isSubmitting ? 'Sending…' : 'Send Message'}
       </button>

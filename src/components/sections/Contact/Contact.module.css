@@ -1,9 +1,13 @@
 /* Contact.module.css */
 
 .header { text-align: center; margin-bottom: var(--space-16); }
-.title  { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -0.02em; }
 
-/* ── Two-column grid ── */
+.title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
@@ -11,7 +15,7 @@
   align-items: start;
 }
 
-/* ── Info panel ── */
+/* ── Info panel — neutral icons, no blue bg ── */
 .info {
   display: flex;
   flex-direction: column;
@@ -26,12 +30,14 @@
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
-.infoItem:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
+.infoItem:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
 
+/* Icon box — neutral grey, not blue ── */
 .infoIcon {
   width: 44px;
   height: 44px;
@@ -39,9 +45,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-primary-glow);
+  background: var(--color-bg-secondary);
   border-radius: var(--radius-md);
-  color: var(--color-primary);
+  color: var(--color-text-secondary);
 }
 
 .infoDetails h3 {
@@ -61,7 +67,7 @@
 }
 
 .infoDetails a { transition: color var(--transition-base); }
-.infoDetails a:hover { color: var(--color-primary); }
+.infoDetails a:hover { color: var(--color-text-secondary); }
 
 /* ── Form ── */
 .form {
@@ -72,8 +78,6 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   padding: var(--space-8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   box-shadow: var(--shadow-md);
 }
 
@@ -102,10 +106,10 @@
   outline: none;
   transition:
     border-color var(--transition-base),
-    box-shadow var(--transition-base),
-    background var(--transition-slow);
+    box-shadow var(--transition-base);
 }
 
+/* Focus — this is where the accent colour is appropriate ── */
 .form input:focus,
 .form textarea:focus {
   border-color: var(--color-primary);
@@ -125,7 +129,7 @@
   font-weight: 500;
 }
 
-/* ── Submit button ── */
+/* ── Submit — primary accent button ── */
 .submitBtn {
   display: inline-flex;
   align-items: center;
@@ -139,23 +143,60 @@
   padding: 13px 28px;
   border-radius: var(--radius-md);
   border: 2px solid var(--color-primary);
-  box-shadow: 0 4px 20px var(--color-primary-glow);
   cursor: pointer;
   transition:
     background var(--transition-base),
-    transform var(--transition-base),
-    box-shadow var(--transition-base);
+    transform var(--transition-base);
 }
 .submitBtn:hover:not(:disabled) {
   background: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px var(--color-primary-glow);
 }
 .submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-/* ── Responsive ── */
 @media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
   .form { padding: var(--space-6); }
+}
+
+@media (max-width: 480px) {
+  .form { padding: var(--space-4); border-radius: var(--radius-lg); }
+
+  /* 16px minimum stops iOS Safari from auto-zooming on input focus */
+  .form input,
+  .form textarea {
+    font-size: 16px;
+  }
+
+  .submitBtn {
+    width: 100%;
+  }
+}
+
+.successMsg {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2d7a3a;
+  background: #f0faf2;
+  border: 1px solid #b6e4bc;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+}
+
+.dark-mode .successMsg {
+  color: #6fcf7f;
+  background: rgba(111, 207, 127, 0.08);
+  border-color: rgba(111, 207, 127, 0.2);
+}
+
+.errorMsg {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-accent-red);
+  background: rgba(224, 82, 82, 0.07);
+  border: 1px solid rgba(224, 82, 82, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
 }

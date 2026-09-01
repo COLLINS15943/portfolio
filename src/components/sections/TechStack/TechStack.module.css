@@ -5,7 +5,7 @@
 .label {
   display: block;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -18,7 +18,7 @@
   gap: var(--space-2);
 }
 
-/* ── Individual tile ── */
+/* ── Tiles — neutral by default, brand colour only on hover ── */
 .icon {
   display: flex;
   align-items: center;
@@ -28,31 +28,28 @@
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
   background: var(--color-bg-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   color: var(--color-text-secondary);
   cursor: default;
   transition:
     color var(--transition-base),
     border-color var(--transition-base),
     background var(--transition-base),
-    transform var(--transition-base),
-    box-shadow var(--transition-base);
+    transform var(--transition-base);
 }
 
+/* On hover show the real brand colour — this is meaningful, not decoration */
 .icon:hover {
-  color: var(--brand-color, var(--color-primary));
-  border-color: var(--brand-color, var(--color-primary));
-  background: var(--color-bg-card-hover);
-  transform: translateY(-4px) scale(1.08);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  color: var(--brand-color, var(--color-text-primary));
+  border-color: var(--color-border-strong);
+  background: var(--color-bg-secondary);
+  transform: translateY(-3px);
 }
 
-/* Next.js icon is white — show it on a dark background instead */
+/* Next.js is white — dark tile so the icon is visible */
 .next:hover {
-  color: #fff;
-  background: #000;
-  border-color: #fff;
+  color: #ffffff;
+  background: #1a1a1a;
+  border-color: #333;
 }
 
 @media (max-width: 768px) {

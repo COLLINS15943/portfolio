@@ -13,42 +13,40 @@
     background var(--transition-base),
     color var(--transition-base),
     border-color var(--transition-base),
-    transform var(--transition-base),
-    box-shadow var(--transition-base);
+    transform var(--transition-base);
   white-space: nowrap;
   text-decoration: none;
 }
 
-/* ── Sizes ── */
 .sm  { font-size: 0.82rem; padding: 8px 18px; }
 .md  { font-size: 0.92rem; padding: 12px 26px; }
 .lg  { font-size: 1.00rem; padding: 14px 32px; }
 
-/* ── Variants ── */
+/* Primary — the main accent button. Only place blue is intentional ── */
 .primary {
   background: var(--color-primary);
   color: #fff;
   border: 2px solid var(--color-primary);
-  box-shadow: 0 4px 18px var(--color-primary-glow);
 }
 .primary:hover:not(.disabled) {
   background: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
-  color: #fff;           /* always white — never blends with the background */
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 26px var(--color-primary-glow);
 }
 
+/* Outline — secondary action, neutral ── */
 .outline {
   background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-border-strong);
 }
 .outline:hover:not(.disabled) {
-  background: var(--color-primary-glow);
+  background: var(--color-bg-secondary);
   transform: translateY(-2px);
 }
 
+/* Ghost — tertiary, almost invisible ── */
 .ghost {
   background: transparent;
   color: var(--color-text-secondary);
@@ -57,11 +55,9 @@
 .ghost:hover:not(.disabled) {
   color: var(--color-text-primary);
   background: var(--color-bg-secondary);
-  border-color: var(--color-primary);
   transform: translateY(-2px);
 }
 
-/* ── Disabled ── */
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
