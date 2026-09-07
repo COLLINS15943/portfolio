@@ -17,8 +17,8 @@ const About = () => (
       {/* ── Image column ── */}
       <ScrollReveal direction="left" className={styles.imageWrap}>
         <img
-          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=450&fit=crop"
-          alt="Developer workspace setup"
+          src="/images/about/workspace.jpg"
+          alt="Product design and frontend engineering workspace"
           className={styles.image}
           loading="lazy"
           width={600}

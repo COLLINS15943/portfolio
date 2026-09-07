@@ -18,7 +18,7 @@ const Contact = () => (
     <ScrollReveal>
       <div className={styles.header}>
         <span className="label">Contact</span>
-        <h2 className={styles.title}>Let's work together.</h2>
+        <h2 className={styles.title}>Have a project in mind? Let&apos;s talk.</h2>
       </div>
     </ScrollReveal>
 
